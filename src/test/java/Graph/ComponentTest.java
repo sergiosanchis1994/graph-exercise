@@ -2,17 +2,14 @@ package Graph;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @RunWith(JUnit4.class)
@@ -24,13 +21,13 @@ public class ComponentTest {
     private Node nodeMock;
 
     @Before
-    public void init(){
+    public void init() {
         MockitoAnnotations.initMocks(this);
         when(nodeMock.getValue()).thenReturn(NODE_VALUE);
     }
 
     @Test
-    public void verify_addNode_addNewNodeWhenItNotExists(){
+    public void verify_addNode_addNewNodeWhenItNotExists() {
         Component component = new Component();
         assertTrue(component.getNodes().isEmpty());
         component.addNode(nodeMock);
@@ -39,7 +36,7 @@ public class ComponentTest {
     }
 
     @Test
-    public void verify_addNode_noAddNewNodeWhenItExists(){
+    public void verify_addNode_noAddNewNodeWhenItExists() {
         Component component = new Component();
         component.addNode(nodeMock);
         assertFalse(component.getNodes().isEmpty());
@@ -50,7 +47,7 @@ public class ComponentTest {
     }
 
     @Test
-    public void verify_mergeComponent_mergeTwoComponentsWithoutRepetitions(){
+    public void verify_mergeComponent_mergeTwoComponentsWithoutRepetitions() {
         Node node1 = generateNode('1');
         Node node2 = generateNode('2');
         Node node3 = generateNode('3');
@@ -62,13 +59,13 @@ public class ComponentTest {
         assertEquals(3, component1.getNodes().size());
     }
 
-    private Node generateNode(char value){
+    private Node generateNode(char value) {
         return new Node(value);
     }
 
-    private Component generateComponent(Node... nodes){
+    private Component generateComponent(Node... nodes) {
         Component component = new Component();
-        for (Node node: nodes) {
+        for (Node node : nodes) {
             component.addNode(node);
         }
         return component;

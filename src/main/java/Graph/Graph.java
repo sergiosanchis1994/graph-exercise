@@ -77,4 +77,8 @@ public class Graph {
             throw new Exception(INVALID_INPUT_EXCEPTION);
         }
     }
+
+    public List<Component> getComponents() {
+        return components;
+    }
 }
