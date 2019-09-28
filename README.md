@@ -12,3 +12,25 @@ There are two connected components in above graph:
 3 4
 
 You determine the Graph class Setters and Getters. 
+
+
+### How to execute it
+#### With JAR
+Clone this project in a folder and search the jar file (<project-folder>/target/graph-<version>) 
+and execute the following command:
+
+``
+java -jar graph-<version>.jar
+``
+#### With IDE + Maven
+Clone this project, use the command 
+
+``
+mvn clean install
+``
+
+to install the dependencies. The next step will be execute the Application.class with your IDE
+
+### Notes
+#### UT
+Only it has had UT from class related to Graph package.
