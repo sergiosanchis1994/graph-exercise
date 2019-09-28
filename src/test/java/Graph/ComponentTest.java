@@ -48,4 +48,29 @@ public class ComponentTest {
         assertFalse(component.getNodes().isEmpty());
         assertEquals(1, component.getNodes().size());
     }
+
+    @Test
+    public void verify_mergeComponent_mergeTwoComponentsWithoutRepetitions(){
+        Node node1 = generateNode('1');
+        Node node2 = generateNode('2');
+        Node node3 = generateNode('3');
+        Component component1 = generateComponent(node1, node2);
+        Component component2 = generateComponent(node1, node3);
+        assertEquals(2, component1.getNodes().size());
+        assertEquals(2, component2.getNodes().size());
+        component1.mergeComponent(component2);
+        assertEquals(3, component1.getNodes().size());
+    }
+
+    private Node generateNode(char value){
+        return new Node(value);
+    }
+
+    private Component generateComponent(Node... nodes){
+        Component component = new Component();
+        for (Node node: nodes) {
+            component.addNode(node);
+        }
+        return component;
+    }
 }
