@@ -20,13 +20,12 @@ public class Application {
     private static void runMain() {
         try {
             printMain();
-            int userOption = Integer.parseInt(getUserInput());
-            switch (userOption) {
+            switch (Integer.parseInt(getUserInput())) {
                 case 1:
                     printInsertGraph();
-                    String inputGraph = getUserInput();
-                    Graph graph = new Graph(inputGraph);
+                    Graph graph = new Graph(getUserInput());
                     graph.printGraph();
+                    graph = null;
                     break;
                 case 2:
                     printUsage();
